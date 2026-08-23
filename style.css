@@ -1,0 +1,158 @@
+:root{
+  --paper:#f2f4f2;
+  --panel:#ffffff;
+  --ink:#12231d;
+  --ink-soft:#4c5f58;
+  --line:#d8ded9;
+  --teal:#0f6b5c;
+  --teal-dark:#0a4a40;
+  --amber:#c97d2e;
+  --amber-soft:#f1dcc0;
+  --red:#b3462c;
+  --mono:'IBM Plex Mono', ui-monospace, monospace;
+  --serif:'Source Serif 4', Georgia, serif;
+  --sans:'Inter', system-ui, -apple-system, sans-serif;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--sans);}
+::selection{background:var(--amber-soft);}
+
+/* ---- Header ---- */
+header.top{
+  border-bottom:1px solid var(--line);
+  background:var(--panel);
+  padding:22px 32px 0 32px;
+}
+.top-inner{max-width:1320px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;}
+.title-block{padding-bottom:18px;}
+.eyebrow{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--teal);
+  margin-bottom:6px;
+}
+h1{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:32px;
+  margin:0 0 4px 0;
+  color:var(--ink);
+  letter-spacing:-0.01em;
+}
+.subtitle{color:var(--ink-soft);font-size:14.5px;max-width:560px;line-height:1.45;}
+.spark-wrap{padding-bottom:18px;min-width:280px;}
+.spark-label{font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;}
+
+nav.tabs{max-width:1320px;margin:0 auto;display:flex;gap:2px;padding-top:10px;}
+nav.tabs button{
+  font-family:var(--sans);
+  font-size:14px;
+  font-weight:600;
+  color:var(--ink-soft);
+  background:none;
+  border:none;
+  border-bottom:3px solid transparent;
+  padding:10px 18px 12px 18px;
+  cursor:pointer;
+  transition:color .15s ease;
+}
+nav.tabs button:hover{color:var(--ink);}
+nav.tabs button.active{color:var(--teal-dark);border-bottom-color:var(--teal);}
+
+main{max-width:1320px;margin:0 auto;padding:28px 32px 60px 32px;}
+.view{display:none;}
+.view.active{display:block;}
+
+/* ---- Panels / controls ---- */
+.panel{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:3px;
+  padding:20px 22px;
+  margin-bottom:20px;
+}
+.control-row{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-end;}
+.control{min-width:200px;flex:1;}
+.control label{
+  display:block;
+  font-family:var(--mono);
+  font-size:10.5px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--ink-soft);
+  margin-bottom:7px;
+}
+select, input[type=text]{
+  width:100%;
+  font-family:var(--sans);
+  font-size:14px;
+  padding:9px 10px;
+  border:1px solid var(--line);
+  border-radius:2px;
+  background:var(--paper);
+  color:var(--ink);
+}
+select:focus, input:focus{outline:2px solid var(--teal);outline-offset:1px;}
+optgroup{font-family:var(--sans);font-weight:700;}
+
+.chip-wrap{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+.chip{
+  font-family:var(--mono);
+  font-size:12px;
+  padding:5px 11px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:var(--paper);
+  color:var(--ink-soft);
+  cursor:pointer;
+  transition:all .12s ease;
+  user-select:none;
+}
+.chip:hover{border-color:var(--teal);}
+.chip.on{background:var(--teal);border-color:var(--teal);color:#fff;}
+
+.hint{font-size:12.5px;color:var(--ink-soft);margin-top:10px;line-height:1.5;}
+.hint b{color:var(--ink);}
+
+/* ---- Chart panel ---- */
+.chart-panel{padding:6px 10px 14px 10px;}
+#trendChart, #corrChart{width:100%;}
+#mapEl{width:100%;height:560px;border-radius:2px;}
+
+.range-row{display:flex;align-items:center;gap:14px;}
+.range-row input[type=range]{flex:1;accent-color:var(--teal);}
+.year-badge{
+  font-family:var(--mono);
+  font-size:22px;
+  font-weight:700;
+  color:var(--teal-dark);
+  min-width:64px;
+  text-align:center;
+  background:var(--amber-soft);
+  border-radius:3px;
+  padding:4px 0;
+}
+
+.stat-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;}
+.stat-card{
+  flex:1;min-width:150px;
+  border:1px solid var(--line);
+  border-radius:3px;
+  padding:14px 16px;
+  background:var(--paper);
+}
+.stat-card .num{font-family:var(--mono);font-size:26px;font-weight:700;color:var(--teal-dark);}
+.stat-card .lbl{font-size:11.5px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;margin-top:2px;}
+
+footer.credit{
+  max-width:1320px;margin:0 auto;padding:0 32px 40px 32px;
+  font-size:12px;color:var(--ink-soft);
+}
+
+@media (max-width: 760px){
+  header.top, main, footer.credit{padding-left:16px;padding-right:16px;}
+  h1{font-size:24px;}
+  #mapEl{height:420px;}
+}
